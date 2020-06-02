@@ -17,12 +17,29 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/app_id"/>
 
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="false" />
 
-        <activity android:name=".BookMarkActivity"></activity>
-        <activity android:name=".HadithDetailsActivity" />
-        <activity android:name=".ChapterDetailsActivity" />
-        <activity android:name=".BookDetailsActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".BookMarkActivity"
+            android:screenOrientation="portrait"
+
+            ></activity>
+        <activity android:name=".HadithDetailsActivity"
+            android:screenOrientation="portrait"
+
+            />
+        <activity android:name=".ChapterDetailsActivity"
+            android:screenOrientation="portrait"
+
+            />
+        <activity android:name=".BookDetailsActivity"
+            android:screenOrientation="portrait"
+
+            />
+        <activity android:name=".MainActivity"
+
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

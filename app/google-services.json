@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "406454807838",
+    "firebase_url": "https://sahih-bukhari-15cd7.firebaseio.com",
+    "project_id": "sahih-bukhari-15cd7",
+    "storage_bucket": "sahih-bukhari-15cd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406454807838:android:0248779c27381c0366ad0f",
+        "android_client_info": {
+          "package_name": "com.sunztech.sahihbukhari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406454807838-f2ouglrioo07pt5r4jvlng2das032o9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXWGXnI32S-dhDkNo26ENHzBIm57CBdAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406454807838-f2ouglrioo07pt5r4jvlng2das032o9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
