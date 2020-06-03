@@ -1,5 +1,6 @@
 package com.sunztech.sahihbukhari;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
@@ -52,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-
-
         MyUtils.setTypeface(this, null, null, tv_chapters);
         MyUtils.setTypeface(this, null, null, tv_bookMark);
 
@@ -81,11 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAdClosed() {
-                if(isChapters)
-                {
+                if (isChapters) {
                     Intent intent = new Intent(MainActivity.this, BookDetailsActivity.class);
                     startActivity(intent);
-                }else{
+                } else {
                     Intent intent = new Intent(MainActivity.this, BookMarkActivity.class);
                     startActivity(intent);
                 }
@@ -125,13 +123,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotoBookMark(View view) {
-        if(numberOfClicks % counter == 0)
-        {
+        if (numberOfClicks % counter == 0) {
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
             isChapters = false;
             numberOfClicks++;
 
-        }else{
+        } else {
             Intent intent = new Intent(this, BookMarkActivity.class);
             startActivity(intent);
             numberOfClicks++;
@@ -141,13 +138,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotoHadith(View view) {
-        if(numberOfClicks % counter == 0)
-        {
+        if (numberOfClicks % counter == 0) {
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
             isChapters = true;
             numberOfClicks++;
 
-        }else{
+        } else {
             Intent intent = new Intent(this, BookDetailsActivity.class);
             startActivity(intent);
             numberOfClicks++;
@@ -155,9 +151,30 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void shareBook(View view)
-    {
+    public void shareBook(View view) {
         MyUtils.shareApp("https://play.google.com/store/apps/details?id=" + this.getPackageName(), this);
     }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+        dialog.setCancelable(false);
+        dialog.setTitle("Alert!");
+        dialog.setMessage("Are you sure you want to close this app?");
+        dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                MainActivity.super.onBackPressed();
+            }
+        }).setNegativeButton("No ", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        final AlertDialog alert = dialog.create();
+        alert.show();
+
+    }
 }
